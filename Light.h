@@ -3,6 +3,7 @@
 
 #include "Device.h"
 #include <algorithm>
+
 class Light : public Device {
 private:
     int brightness;
