@@ -1,25 +1,20 @@
 #include "Light.h"
 #include "Thermostat.h"
+#include "MacroSystem.h"
 
 int main(){
-    // Light *den_phong_ngu = new Light(10,"Den phong ngu", 85);
-    // den_phong_ngu->toggle();
-    // den_phong_ngu->getStatus();
-    // delete den_phong_ngu;
+MacroSystem phongNgu;
+    Light den(1, "Den Phong Ngu", 15);
+    Thermostat dieuHoa(2, "Dieu Hoa Phong Ngu", 28.0f, 24.0f);
 
-    // Light *den_phong_khach = new Light(11,"Den phong khach", 90);
-    // den_phong_khach->toggle();
-    // den_phong_khach->setBrightness(65);
-    // den_phong_khach->getStatus();
-    // delete den_phong_khach;
+    phongNgu.addMacro("Chuc Ngu Ngon", {
+        [&]() { den.toggle(); },
+        [&]() { dieuHoa.setTargetTemp(22.0f); },
+        [&]() { dieuHoa.toggle(); }
+    });
 
-    Thermostat *nhiet_do_phong_ngu = new Thermostat(1,"May dieu hoa phong ngu",30.0f, 24.5f);
-    nhiet_do_phong_ngu->toggle();
-    nhiet_do_phong_ngu->getStatus();
-    nhiet_do_phong_ngu->setTargetTemp(26.5f);
-    nhiet_do_phong_ngu->updateEnvironment();
-    nhiet_do_phong_ngu->getStatus();
-    delete nhiet_do_phong_ngu;
+    phongNgu.listMacro();
+    phongNgu.execute("Chuc Ngu Ngon");
 
     return 0;
 }

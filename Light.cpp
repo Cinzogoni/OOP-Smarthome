@@ -10,18 +10,18 @@ void Light::toggle() {
     }
 
     isOn = !isOn;
-    cout << "[DEN]" << name << (isOn ? " mo" : " tat") 
+    cout << "[DEN] " << name << (isOn ? " mo" : " tat") 
          << ", do sang " << brightness << "%" << endl;
 }
 
 void Light::getStatus() {
-    cout << "[DEN]" << name << " id " << id << " - " << (isOn ? "mo" : "tat") 
+    cout << "[DEN] " << name << " id " << id << " - " << (isOn ? "mo" : "tat") 
          << ", do sang " << brightness << "%" << endl;
 }
 
 void Light::setBrightness(int b) {
     brightness = max(0, min(100, b));
-    cout << "[DEN]" << name << " do sang la " << brightness << "%" << endl;
+    cout << "[DEN] " << name << " do sang la " << brightness << "%" << endl;
 }
 
 void Light::turnOff() {
