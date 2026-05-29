@@ -10,12 +10,12 @@ void Light::toggle() {
     }
 
     isOn = !isOn;
-    cout << "[DEN] " << name << (isOn ? " mo" : " tat") 
+    cout << "[DEN] " << name << (isOn ? " MO" : " TAT") 
          << ", do sang " << brightness << "%" << endl;
 }
 
 void Light::getStatus() {
-    cout << "[DEN] " << name << " id " << id << " - " << (isOn ? "mo" : "tat") 
+    cout << "[DEN] " << name << " id " << id << " - " << (isOn ? "MO" : "TAT") 
          << ", do sang " << brightness << "%" << endl;
 }
 

@@ -44,7 +44,7 @@ void SecurityCamera::startRecording() {
 void SecurityCamera::getStatus(){
     cout << "[CAM] " << "Id: " << id << ", Ten: " << name
          << ", Vi tri: " << location 
-         << ", Xac thuc: "<<(isAuthenticated ? "Roi": "Chua")
+         << ", Xac thuc: "<<(isAuthenticated ? "DA XAC THUC": "CHUA XAC THUC")
          << ", Trang thai: " << (isRecording ? "Dang ghi hinh, " : "Khong ghi hinh, ")
          << (isError ? "[TRUC TRAC]" : "[ON DINH]") << endl;  
 }

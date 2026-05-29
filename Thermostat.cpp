@@ -2,6 +2,8 @@
 #include "SmartHomeExceptions.h"
 #include <cmath>
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 Thermostat::Thermostat(int id, string name, float init, float target)
 : Device(id, name), currentTemp(init), targetTemp(target), heaterOn(false), coolerOn(false) {}
@@ -18,7 +20,7 @@ void Thermostat::toggle(){
         coolerOn = false;
     }
 
-    cout << "[NHIET] " << name << (isOn ? " mo" : " tat") << endl;
+    cout << "[NHIET] " << name << (isOn ? " MO" : " TAT") << endl;
 }
 
 void Thermostat::updateEnvironment(){

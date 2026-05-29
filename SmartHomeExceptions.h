@@ -1,6 +1,8 @@
 #ifndef SMART_HOME_EXCEPTION_H
 #define SMART_HOME_EXCEPTION_H
 
+#include <exception>
+
 class UnauthorizedAccessException : public exception {
     string msg;
 public:

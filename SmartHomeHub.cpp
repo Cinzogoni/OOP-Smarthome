@@ -31,6 +31,7 @@ void SmartHomeHub::malfunctionDevice(int id) {
 }
 
 void SmartHomeHub::allStatus() {
+    cout << string(50, '=') << endl;
     cout << "TRANG THAI HE THONG: " << hubName << endl;
     for (Device* device : devices) {
         device->getStatus(); 
