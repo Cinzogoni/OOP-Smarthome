@@ -4,6 +4,8 @@
 #include "Device.h"
 using namespace std;
 
+const int MAX_FEEDBACK = 4;
+
 class Thermostat : public Device {
     private:
         float currentTemp, targetTemp;
@@ -16,6 +18,8 @@ class Thermostat : public Device {
         void getStatus() override;
         void setTargetTemp(float t);
         void updateEnvironment();
+
+        void forceFeedbackLoop();
 };
 
 #endif

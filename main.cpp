@@ -4,6 +4,9 @@
 #include "Light.h"
 #include "Thermostat.h"
 #include "SecurityCamera.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 int main(){
     SmartHomeHub myHub("TONG DAI DAY!");
@@ -39,6 +42,24 @@ int main(){
 
     myHub.getMacroSystem().execute("Chuc Ngu Ngon");
     myHub.allStatus();
+    cout << string(50, '=') << endl;
+
+    cout << "-----[CAMERA ERROR] TRUY CAP TRAI PHEP VAO THIET BI CAMERA-----" << endl;
+    try{
+        SecurityCamera* cam_trom = new SecurityCamera(99, "Cam An Danh", "Phong Ngu");
+        cam_trom->authenticate("bac123");
+        cam_trom->toggle();
+
+    }catch(const exception& e){
+        cout << "Ket qua: " << e.what() << endl;
+    }
+
+    cout << "-----[THERMOSTAT ERROR] VONG LAP PHAN HOI-----" << endl;
+    try{
+        dieu_hoa_phong_khach->forceFeedbackLoop();
+    }catch(const exception& e){
+        cout << "Ket qua: " << e.what() << endl;
+    }
 
     return 0;
 }
