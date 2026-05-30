@@ -10,7 +10,8 @@
 using namespace std;
 
 int main(){
-    SmartHomeHub myHub("TONG DAI DAY!");
+    cout << "-----SMART HOME HUB-----" << endl;
+    SmartHomeHub myHub("-----TONG DAI DAY!-----");
 
     Light *den_phong_khach = new Light(1, "Den Phong Khach", 90);
     Thermostat *dieu_hoa_phong_khach = new Thermostat(2, "Dieu Hoa Phong Khach", 30.0f, 28.5f);
@@ -46,7 +47,8 @@ int main(){
     myHub.allStatus();
     cout << string(50, '=') << endl;
 
-    cout << "-----[CAMERA ERROR] TRUY CAP TRAI PHEP VAO THIET BI CAMERA-----" << endl;
+    cout << "-----VONG LAP PHAN HOI-----" << endl;
+    cout << "[CAMERA ERROR] TRUY CAP TRAI PHEP VAO THIET BI CAMERA" << endl;
     try{
         SecurityCamera* cam_trom = new SecurityCamera(99, "Cam An Danh", "Phong Ngu");
         cam_trom->authenticate("bac123");
@@ -56,12 +58,24 @@ int main(){
         cout << "Ket qua: " << e.what() << endl;
     }
 
-    cout << "-----[THERMOSTAT ERROR] VONG LAP PHAN HOI-----" << endl;
+    cout << "[THERMOSTAT ERROR] NHIET DO BAT THUONG" << endl;
     try{
         dieu_hoa_phong_khach->forceFeedbackLoop();
     }catch(const exception& e){
         cout << "Ket qua: " << e.what() << endl;
     }
+    cout << string(50, '=') << endl;
+
+    cout << "-----NHAP CHONG TOAN TU-----" << endl;
+    cout << "Kich hoat toan tu ! voi " << dieu_hoa_phong_khach->getName() << endl;
+    myHub.triggerDeviceFault(dieu_hoa_phong_khach);
+    dieu_hoa_phong_khach->getStatus();
+    cout << endl;
+
+    cout << "Kich hoat toan tu ! voi " << den_phong_ngu->getName() << endl;
+    myHub.triggerDeviceFault(den_phong_ngu);
+    den_phong_ngu->getStatus();
+    cout << endl;
 
     return 0;
 }

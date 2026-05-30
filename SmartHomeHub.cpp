@@ -1,4 +1,4 @@
-#include "SmartHomeHub.h" 
+#include "SmartHomeHub.h"
 #include <iostream>
 
 SmartHomeHub::SmartHomeHub(const string& name) {
@@ -35,5 +35,23 @@ void SmartHomeHub::allStatus() {
     cout << "TRANG THAI HE THONG: " << hubName << endl;
     for (Device* device : devices) {
         device->getStatus(); 
+    }
+}
+
+void SmartHomeHub::triggerDeviceFault(Device* device) {
+   cout << "[HUB] Dang quet va kiem tra phan cung cho: " 
+        << device->getName() << endl;
+    
+    !(*device); 
+
+   
+    if (device->getIsError()) { 
+        cout << "[HUB] Cảnh báo: " 
+             << device->getName() << " dang dính su co!" << endl;
+        
+        cout << "[HUB] He thong tu dong kich hoat lenh RESET de khac phuc..." << endl;
+        !(*device); 
+
+        cout << "[HUB] Hoan thanh quet! He thong trung tam da on dinh." << endl;
     }
 }

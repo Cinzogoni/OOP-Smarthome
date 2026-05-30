@@ -24,6 +24,7 @@ class Device{
         string getName() const { return name; }
         int getId() const { return id; }
         bool getIsOn() const { return isOn; }
+        bool getIsError() const;
 };
 
 #endif

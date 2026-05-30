@@ -7,12 +7,16 @@ Device::Device(int id, string name)
 
 Device::~Device(){}
 
+bool Device::getIsError() const {
+    return isError;
+}
+
 void Device::operator!() {
     isError = !isError;
     if (isError) {
         isOn = false;
-        cout << "[!]" << name << " Su co - khoi dong lai" << endl;    
+        cout << "[!] " << name << " SU CO LOI - khoi dong lai" << endl;    
     } else {
-        cout << "[OK]" << name << " Da khoi dong lai thanh cong" << endl;
+        cout << "[OK] " << name << " Da khoi dong lai thanh cong" << endl;
     }
 }

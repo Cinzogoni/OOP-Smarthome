@@ -5,7 +5,7 @@ Light::Light(int id, string name, int brightness)
 
 void Light::toggle() {
     if (isError) {
-        cout << "[!]" << name << " loi khong the mo" << endl;
+        cout << "[!] " << name << " loi khong the mo" << endl;
         return;
     }
 

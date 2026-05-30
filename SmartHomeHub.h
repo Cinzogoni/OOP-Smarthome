@@ -19,6 +19,7 @@ using namespace std;
             void toggleDevice(int id);
             void malfunctionDevice(int id);
             void allStatus();
+            void triggerDeviceFault(Device* device);
 
             MacroSystem& getMacroSystem() { return macroSystem; }
 };
